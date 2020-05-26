@@ -54,7 +54,11 @@ def main():
 	deck.shuffle()
 	player = pc.HumanPlayer()
 	cpu = pc.ComputerDealer()	
-	player.set_avail_money(int(input('Please type the amount of money you have: ')))
+	while True:		#Error catching the input of the player
+		try:
+			player.set_avail_money(int(input('Please type the amount of money you have: ')))
+		except:
+			print('Sorry, please enter an integer.')
 	while player.avail_money > 0:
 		turn_check = 0	#A variable to check which period of the game we are in
 		player.make_bet(int(input('Please type in your bet: ')))
